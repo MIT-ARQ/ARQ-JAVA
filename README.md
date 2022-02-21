@@ -1,2 +1,2 @@
 # ARQ-JAVA
-Projetos da matéria de arquitetura em java
+Projetos da matéria de arquitetura em java.
