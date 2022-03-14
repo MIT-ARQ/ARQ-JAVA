@@ -1,47 +1,48 @@
 package br.edu.infnet.estudo.model.domain;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Aluno {
 	
 	public String nome;
-	public Date dataNascimento;
+	public LocalDateTime dataNascimento;
 	public String profissao;
 	public List<Trilha> trilhas; 
 	
+	public Aluno(String nome, LocalDateTime dataNascimento, String profissao) {
+		this.nome = nome;
+		this.dataNascimento = dataNascimento;
+		this.profissao = profissao;
+	}
+	
+	@Override
+	public String toString() {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append(nome);
+		sb.append(";");
+		sb.append(dataNascimento.toString());
+		sb.append(";");
+		sb.append(profissao);
+		
+		return sb.toString();
+	}
+	
 	public List<Trilha> getTrilhas() {
 		return trilhas;
-	}
-
-	public void setTrilhas(List<Trilha> trilhas) {
-		this.trilhas = trilhas;
 	}
 
 	public String getNome() {
 		return nome;
 	}
 	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
-	public Date getDataNascimento() {
+	public LocalDateTime getDataNascimento() {
 		return dataNascimento;
-	}
-	
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
 	}
 	
 	public String getProfissao() {
 		return profissao;
 	}
-	
-	public void setProfissao(String profissao) {
-		this.profissao = profissao;
-	}
-	
-	
-
 }
