@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-Luis
+<h3>Sistema de gestão de conteúdos para estudos</h3>
+<a href="/aluno">Cadastro de Alunos</a><br/>
+<a href="/artigo">Cadastro de Artigos</a><br/>
+<a href="/trilha">Cadastro de Trilhas</a><br/>
+<a href="/video">Cadastro de Videos</a><br/>
+<a href="/questionario">Cadastro de Questionarios</a>
+
 </body>
 </html>
