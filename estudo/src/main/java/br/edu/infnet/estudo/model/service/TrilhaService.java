@@ -21,7 +21,7 @@ public class TrilhaService {
 	}
 	
 	public void incluir(Trilha trilha) {
-		//trilha.setId(++id);
+		trilha.setId(++id);
 		mapa.put(id, trilha);
 	}
 	

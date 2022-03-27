@@ -7,13 +7,21 @@
 <meta charset="ISO-8859-1">
 <title>Gestão de Trilhas</title>
 </head>
-<body>
+<body class="container">
 <h4>Gestão de Trilhas</h4>
 
 <form method="post" action="/trilha/incluir">
-  <div class="form-group">
+  <div class="mb-3 mt-3">
     <label>Nome da Trilha</label>
-    <input type="text" class="form-control" id="nome" placeholder="Digite o nome">
+    <input type="text" class="form-control"  placeholder="Digite o nome" name="nome">
+  </div>
+  <div class="mb-3 mt-3">
+    <label>Categoria</label>
+    <input type="text" class="form-control"  placeholder="Digite a categoria" name="categoria">
+  </div>
+  <div class="mb-3 mt-3">
+    <label>Área</label>
+    <input type="text" class="form-control"  placeholder="Insira a área" name="area">
   </div>
   <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>

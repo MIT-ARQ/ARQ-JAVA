@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Trilha {
 	
+	public Integer id;
 	public String nome;
 	public String categoria;
 	public String area;
@@ -73,6 +74,14 @@ public class Trilha {
 	
 	public LocalDateTime getDataLancamento() {
 		return dataLancamento;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }
