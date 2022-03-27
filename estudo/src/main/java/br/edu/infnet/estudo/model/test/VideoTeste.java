@@ -10,13 +10,13 @@ public class VideoTeste {
 
 	public static void main(String[] args) {
 		
-		Video video1 = new Video("Ferramentas de automatização de testes","www.infnet.com/videos/jmeter.mp4",LocalDateTime.now());
+		Video video1 = new Video("Ferramentas de automatização de testes","www.infnet.com/videos/jmeter.mp4","22/02/2002");
 		video1.setDuracao((long) 10855);
 		video1.setFormato("MP4");
 		video1.setPermiteDownload(true);
 		System.out.println(video1);
 		
-		Video video2 = new Video("Ferramentas de automatização de testes","www.infnet.com/videos/jmeter.mp4",LocalDateTime.now());
+		Video video2 = new Video("Ferramentas de automatização de testes","www.infnet.com/videos/jmeter.mp4","22/02/2002");
 		video2.setDuracao((long) 10855);
 		video2.setFormato("MP4");
 		video2.setPermiteDownload(true);

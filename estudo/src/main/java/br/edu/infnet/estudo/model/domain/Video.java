@@ -1,6 +1,8 @@
 package br.edu.infnet.estudo.model.domain;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Video extends Conteudo{
 
@@ -8,8 +10,8 @@ public class Video extends Conteudo{
 	public String formato;
 	public Boolean permiteDownload;
 	
-	public Video(String nome, String link, LocalDateTime dataPublicacao) {
-		super(nome, link, dataPublicacao);
+	public Video(String nome, String link, String dataPublicacao) {
+		super(nome, link, LocalDate.parse(dataPublicacao, DateTimeFormatter.ofPattern("uuuu-MM-dd")).atStartOfDay());
 	}
 	
 	@Override

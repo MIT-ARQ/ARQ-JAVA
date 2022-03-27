@@ -13,7 +13,7 @@ public class TrilhaTeste {
 
 	public static void main(String[] args) {
 		
-		Video video1 = new Video("Ferramentas de automatização de testes","www.infnet.com/videos/jmeter.mp4",LocalDateTime.now());
+		Video video1 = new Video("Ferramentas de automatização de testes","www.infnet.com/videos/jmeter.mp4","22/02/2002");
 		video1.setDuracao((long) 10855);
 		video1.setFormato("MP4");
 		video1.setPermiteDownload(true);
@@ -21,7 +21,7 @@ public class TrilhaTeste {
 		List<Conteudo> conteudos = new ArrayList<Conteudo>();
 		conteudos.add(video1);
 		
-		Aluno aluno = new Aluno("Luis",LocalDateTime.now(),"Programador");
+		Aluno aluno = new Aluno("Luis","30/03/1990","Programador");
 
 		Trilha trilha = new Trilha();
 		trilha.setNome("Angular");

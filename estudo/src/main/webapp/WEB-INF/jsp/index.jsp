@@ -8,11 +8,11 @@
 </head>
 <body>
 <h3>Sistema de gestão de conteúdos para estudos</h3>
-<a href="/aluno">Cadastro de Alunos</a><br/>
-<a href="/artigo">Cadastro de Artigos</a><br/>
-<a href="/trilha">Cadastro de Trilhas</a><br/>
-<a href="/video">Cadastro de Videos</a><br/>
-<a href="/questionario">Cadastro de Questionarios</a>
+<a href="/alunos">Cadastro de Alunos</a><br/>
+<a href="/artigos">Cadastro de Artigos</a><br/>
+<a href="/trilhas">Cadastro de Trilhas</a><br/>
+<a href="/videos">Cadastro de Videos</a><br/>
+<a href="/questionarios">Cadastro de Questionarios</a>
 
 </body>
 </html>

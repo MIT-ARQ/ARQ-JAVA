@@ -1,9 +1,11 @@
 package br.edu.infnet.estudo.model.domain;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public abstract class Conteudo {
 	
+	public Integer id;
 	public String nome;
 	public String link;
 	public LocalDateTime dataPublicacao;
@@ -40,10 +42,18 @@ public abstract class Conteudo {
 		return nome;
 	}
 	
-	
-	
 	public String getLink() {
 		return link;
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
 	
 }

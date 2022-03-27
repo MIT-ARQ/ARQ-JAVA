@@ -1,6 +1,8 @@
 package br.edu.infnet.estudo.model.domain;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Artigo extends Conteudo{
 	
@@ -8,8 +10,8 @@ public class Artigo extends Conteudo{
 	public int qtdPaginas;
 	public Boolean ehAcademico;
 	
-	public Artigo(String nome, String link, LocalDateTime dataPublicacao) {
-		super(nome, link, dataPublicacao);
+	public Artigo(String nome, String link, String dataPublicacao) {
+		super(nome, link, LocalDate.parse(dataPublicacao, DateTimeFormatter.ofPattern("uuuu-MM-dd")).atStartOfDay());
 	}
 	
 	@Override

@@ -1,6 +1,8 @@
 package br.edu.infnet.estudo.model.domain;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Questionario extends Conteudo{
 	
@@ -8,8 +10,8 @@ public class Questionario extends Conteudo{
 	public String nivel;
 	public String tipo;
 	
-	public Questionario(String nome, String link, LocalDateTime dataPublicacao) {
-		super(nome, link, dataPublicacao);
+	public Questionario(String nome, String link, String dataPublicacao) {
+		super(nome, link, LocalDate.parse(dataPublicacao, DateTimeFormatter.ofPattern("uuuu-MM-dd")).atStartOfDay());
 	}
 	
 	@Override

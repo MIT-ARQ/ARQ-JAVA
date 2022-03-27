@@ -1,18 +1,21 @@
 package br.edu.infnet.estudo.model.domain;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Aluno {
 	
+	public Integer id;
 	public String nome;
 	public LocalDateTime dataNascimento;
 	public String profissao;
 	public List<Trilha> trilhas; 
 	
-	public Aluno(String nome, LocalDateTime dataNascimento, String profissao) {
+	public Aluno(String nome, String dataNascimento, String profissao) {
 		this.nome = nome;
-		this.dataNascimento = dataNascimento;
+		this.dataNascimento = LocalDate.parse(dataNascimento, DateTimeFormatter.ofPattern("uuuu-MM-dd")).atStartOfDay();
 		this.profissao = profissao;
 	}
 	
@@ -45,4 +48,13 @@ public class Aluno {
 	public String getProfissao() {
 		return profissao;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 }

@@ -10,13 +10,13 @@ public class QuestionarioTeste {
 
 	public static void main(String[] args) {
 		
-		Questionario questionario1 = new Questionario("Questionário da Infnet sobre testes de caixa preta","www.infnet.com/testesCaixaPreta/questionario/4857",LocalDateTime.now());
+		Questionario questionario1 = new Questionario("Questionário da Infnet sobre testes de caixa preta","www.infnet.com/testesCaixaPreta/questionario/4857","25/02/2002");
 		questionario1.setNivel("Iniciante");
 		questionario1.setQtdQuestoes(42);
 		questionario1.setTipo("Multipla escolha");
 		System.out.println(questionario1);
 		
-		Questionario questionario2 = new Questionario("Questionário da Infnet sobre testes de caixa preta","www.infnet.com/testesCaixaPreta/questionario/4857",LocalDateTime.now());
+		Questionario questionario2 = new Questionario("Questionário da Infnet sobre testes de caixa preta","www.infnet.com/testesCaixaPreta/questionario/4857","25/02/2002");
 		questionario1.setNivel("Iniciante");
 		questionario1.setQtdQuestoes(42);
 		questionario1.setTipo("Multipla escolha");

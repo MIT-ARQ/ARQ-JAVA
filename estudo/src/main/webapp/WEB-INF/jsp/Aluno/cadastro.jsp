@@ -7,13 +7,21 @@
 <meta charset="ISO-8859-1">
 <title>Gestão de Alunos</title>
 </head>
-<body>
+<body class="container">
 <h4>Gestão de Alunos</h4>
 
 <form method="post" action="/aluno/incluir">
-  <div class="form-group">
+  <div class="mb-3 mt-3">
     <label>Nome do Aluno</label>
-    <input type="text" class="form-control" id="nomeAluno" placeholder="Digite o nome">
+    <input type="text" class="form-control"  placeholder="Digite o nome" name="nome">
+  </div>
+  <div class="mb-3 mt-3">
+    <label>Data de Nascimento</label>
+    <input type="date" class="form-control"  placeholder="Insira a data de nascimento" name="dataNascimento">
+  </div>
+  <div class="mb-3 mt-3">
+    <label>Profissão</label>
+    <input type="text" class="form-control"  placeholder="Digite a profissão" name="profissao">
   </div>
   <button type="submit" class="btn btn-primary">Cadastrar</button>
 </form>
