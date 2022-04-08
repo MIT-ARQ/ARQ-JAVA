@@ -23,7 +23,7 @@
 	  
 	    <div class="mb-3 mt-3">
 	      <label>Email:</label>
-	      <input type="email" class="form-control" placeholder="Informe o seu e-mail" name="email">
+	      <input type="email" class="form-control" placeholder="Informe o seu e-mail" name="email" value="luis.claudio.jr@hotmail.com">
 	    </div>
 	    
 	    <div class="mb-3">
