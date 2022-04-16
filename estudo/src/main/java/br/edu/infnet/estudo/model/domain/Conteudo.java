@@ -3,12 +3,32 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tConteudo")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Conteudo {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer id;
 	public String nome;
 	public String link;
-	public LocalDateTime dataPublicacao;
+	public LocalDateTime dataPublicacao;	
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
+
+	public Conteudo() {}
 	
 	public Conteudo(String nome, String link, LocalDateTime dataPublicacao) {
 		this.nome = nome;
@@ -49,11 +69,27 @@ public abstract class Conteudo {
 	public Integer getId() {
 		return id;
 	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
+	public void setDataPublicacao(String dataPublicacao) {
+		this.dataPublicacao = LocalDate.parse(dataPublicacao, DateTimeFormatter.ofPattern("uuuu-MM-dd")).atStartOfDay();
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 	
 }

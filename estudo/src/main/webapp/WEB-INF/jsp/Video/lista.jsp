@@ -5,10 +5,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <title>Gestão de Videos</title>
 </head>
 <body>
+
+<!-- Barra de menus -->
+<c:import url="/WEB-INF/jsp/menu.jsp"/>
+<!-- Fim barra de menus -->
+
 <h3>Cadastramento de Videos (${listagem.size()})</h3>
 <a href="/video" class="btn btn-success">Novo video</a>
 

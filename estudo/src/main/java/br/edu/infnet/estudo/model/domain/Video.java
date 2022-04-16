@@ -4,11 +4,18 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tVideo")
 public class Video extends Conteudo{
 
 	public Long duracao;
 	public String formato;
 	public Boolean permiteDownload;
+	
+	public Video() {}
 	
 	public Video(String nome, String link, String dataPublicacao) {
 		super(nome, link, LocalDate.parse(dataPublicacao, DateTimeFormatter.ofPattern("uuuu-MM-dd")).atStartOfDay());

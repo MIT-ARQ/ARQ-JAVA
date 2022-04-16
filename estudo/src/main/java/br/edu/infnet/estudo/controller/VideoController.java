@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
+import br.edu.infnet.estudo.model.domain.Usuario;
 import br.edu.infnet.estudo.model.domain.Video;
 import br.edu.infnet.estudo.model.service.VideoService;
 
@@ -22,15 +24,18 @@ public class VideoController {
 	}
 	
 	@GetMapping(value = "/videos")
-	public String lista(Model model) {
+	public String lista(Model model, @SessionAttribute("usuarioLogado") Usuario usuario) {
 		
-		model.addAttribute("listagem", videoService.obterLista());
+		model.addAttribute("listagem", videoService.obterLista(usuario));
 		
 		return "Video/lista";
 	}
 	
 	@PostMapping(value = "/video/incluir")
-	public String incluir(Model model, Video video) {
+	public String incluir(Model model, Video video, @SessionAttribute("usuarioLogado") Usuario usuario) {
+		
+		video.setUsuario(usuario);
+		
 		videoService.incluir(video);
 		
 		return "redirect:/videos";

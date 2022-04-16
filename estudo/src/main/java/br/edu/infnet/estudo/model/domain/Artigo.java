@@ -4,11 +4,21 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tArtigo")
 public class Artigo extends Conteudo{
-	
+		
 	public String autor;
 	public int qtdPaginas;
 	public Boolean ehAcademico;
+	
+	public Artigo() {}
 	
 	public Artigo(String nome, String link, String dataPublicacao) {
 		super(nome, link, LocalDate.parse(dataPublicacao, DateTimeFormatter.ofPattern("uuuu-MM-dd")).atStartOfDay());

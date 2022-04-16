@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.estudo.model.domain.Artigo;
+import br.edu.infnet.estudo.model.domain.Usuario;
 import br.edu.infnet.estudo.model.service.ArtigoService;
 
 @Controller
@@ -22,15 +24,17 @@ public class ArtigoController {
 	}
 	
 	@GetMapping(value = "/artigos")
-	public String lista(Model model) {
+	public String lista(Model model, @SessionAttribute("usuarioLogado") Usuario usuario) {
 		
-		model.addAttribute("listagem", artigoService.obterLista());
+		model.addAttribute("listagem", artigoService.obterLista(usuario));
 		
 		return "Artigo/lista";
 	}
 	
 	@PostMapping(value = "/artigo/incluir")
-	public String incluir(Model model, Artigo artigo) {
+	public String incluir(Model model, Artigo artigo, @SessionAttribute("usuarioLogado") Usuario usuario) {
+		
+		artigo.setUsuario(usuario);
 		
 		artigoService.incluir(artigo);
 		

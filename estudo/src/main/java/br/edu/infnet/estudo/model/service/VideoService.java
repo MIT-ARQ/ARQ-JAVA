@@ -1,36 +1,35 @@
 package br.edu.infnet.estudo.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.edu.infnet.estudo.model.domain.Artigo;
+import br.edu.infnet.estudo.model.domain.Usuario;
 import br.edu.infnet.estudo.model.domain.Video;
+import br.edu.infnet.estudo.model.repository.VideoRepository;
 
 @Service
 public class VideoService {
 	
-	private static Map<Integer, Video> mapa = new HashMap<Integer, Video>();
+	@Autowired
+	private VideoRepository videoRepository;
 	
-	private static Integer id = 0;
-	
-	public Collection<Video> obterLista(){
-		return mapa.values();
+	public Collection<Video> obterLista(Usuario usuario){
+		return (Collection<Video>) videoRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
 	}
 	
 	public void incluir(Video video) {
-		video.setId(++id);
-		mapa.put(id, video);
+		videoRepository.save(video);
 	}
 	
 	public void excluir(Integer id) {
-		mapa.remove(id);
+		videoRepository.deleteById(id);
 	}
 
 	public Video obterPorId(Integer id) {
-		return mapa.get(id);
+		return videoRepository.findById(id).get();
 	}
 			
 }

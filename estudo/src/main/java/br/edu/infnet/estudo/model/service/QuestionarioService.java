@@ -1,36 +1,35 @@
 package br.edu.infnet.estudo.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.edu.infnet.estudo.model.domain.Artigo;
 import br.edu.infnet.estudo.model.domain.Questionario;
+import br.edu.infnet.estudo.model.domain.Usuario;
+import br.edu.infnet.estudo.model.repository.QuestionarioRepository;
 
 @Service
 public class QuestionarioService {
 	
-	private static Map<Integer, Questionario> mapa = new HashMap<Integer, Questionario>();
+	@Autowired
+	private QuestionarioRepository questionarioRepository;
 	
-	private static Integer id = 0;
-	
-	public Collection<Questionario> obterLista(){
-		return mapa.values();
+	public Collection<Questionario> obterLista(Usuario usuario){
+		return (Collection<Questionario>) questionarioRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
 	}
 	
 	public void incluir(Questionario questionario) {
-		questionario.setId(++id);
-		mapa.put(id, questionario);
+		questionarioRepository.save(questionario);
 	}
 	
 	public void excluir(Integer id) {
-		mapa.remove(id);
+		questionarioRepository.deleteById(id);
 	}
 
 	public Questionario obterPorId(Integer id) {
-		return mapa.get(id);
+		return questionarioRepository.findById(id).get();
 	}
 			
 }

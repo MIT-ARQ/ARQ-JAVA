@@ -4,11 +4,18 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tQuestionario")
 public class Questionario extends Conteudo{
 	
 	public int qtdQuestoes;
 	public String nivel;
 	public String tipo;
+	
+	public Questionario() {}
 	
 	public Questionario(String nome, String link, String dataPublicacao) {
 		super(nome, link, LocalDate.parse(dataPublicacao, DateTimeFormatter.ofPattern("uuuu-MM-dd")).atStartOfDay());
