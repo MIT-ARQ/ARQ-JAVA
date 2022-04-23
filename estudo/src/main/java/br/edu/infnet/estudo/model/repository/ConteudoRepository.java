@@ -7,14 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.estudo.model.domain.Usuario;
+import br.edu.infnet.estudo.model.domain.Conteudo;
 
 @Repository
-public interface UsuarioRepository extends CrudRepository<Usuario, Integer> {
+public interface ConteudoRepository extends CrudRepository<Conteudo, Integer>{
 
-	@Query("from Usuario u where email = :email and senha = :senha")
-	Usuario autenticacao(String email, String senha);
-
-	Collection<Usuario> findAll(Sort by);
-	
+	@Query("from Conteudo a where a.usuario.id = :id")
+	Collection<Conteudo> findAll(Integer id, Sort by);
 }

@@ -8,7 +8,9 @@
     </div>
     <ul class="nav navbar-nav">
     	<c:if test="${not empty usuarioLogado}">
+    		<li class="active"><a href="/usuarios">Usuarios</a></li>
 	        <li class="active"><a href="/alunos">Alunos</a></li>
+	        <li class="active"><a href="/conteudos">Conteudos</a></li>
 			<li class="active"><a href="/artigos">Artigos</a></li>
 			<li class="active"><a href="/trilhas">Trilhas</a></li>
 			<li class="active"><a href="/videos">Videos</a></li>
