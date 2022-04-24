@@ -1,36 +1,39 @@
 package br.edu.infnet.estudo.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
-import br.edu.infnet.estudo.model.domain.Artigo;
 import br.edu.infnet.estudo.model.domain.Trilha;
+import br.edu.infnet.estudo.model.domain.Usuario;
+import br.edu.infnet.estudo.model.repository.TrilhaRepository;
 
 @Service
 public class TrilhaService {
 	
-	private static Map<Integer, Trilha> mapa = new HashMap<Integer, Trilha>();
+	@Autowired
+	private TrilhaRepository trilhaRepository;
 	
-	private static Integer id = 0;
+	public Collection<Trilha> obterLista(Usuario usuario){
+		return (Collection<Trilha>) trilhaRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
+	}
 	
 	public Collection<Trilha> obterLista(){
-		return mapa.values();
+		return (Collection<Trilha>) trilhaRepository.findAll(Sort.by(Sort.Direction.ASC, "nome"));
 	}
 	
 	public void incluir(Trilha trilha) {
-		trilha.setId(++id);
-		mapa.put(id, trilha);
+		trilhaRepository.save(trilha);
 	}
 	
 	public void excluir(Integer id) {
-		mapa.remove(id);
+		trilhaRepository.deleteById(id);
 	}
 
 	public Trilha obterPorId(Integer id) {
-		return mapa.get(id);
+		return trilhaRepository.findById(id).get();
 	}
+			
 			
 }

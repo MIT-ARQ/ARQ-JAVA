@@ -31,6 +31,8 @@
 	      <th scope="col">Nome</th>
 	      <th scope="col">Categoria</th>
 	      <th scope="col">Área</th>
+	      <th scope="col">Conteudo</th>
+	      <th scope="col">Aluno</th>
 	      <th scope="col">Ações</th>
 	    </tr>
 	  </thead>
@@ -41,6 +43,8 @@
 	      <td>${l.nome}</td>
 	      <td>${l.categoria}</td>
 	      <td>${l.area}</td>
+	      <td>${l.conteudos.size()}</td>
+	      <td>${l.aluno.nome}</td>
 	      <td><a href="/trilha/${l.id}/excluir">excluir</a></td>
 	    </tr>
 	  </c:forEach>

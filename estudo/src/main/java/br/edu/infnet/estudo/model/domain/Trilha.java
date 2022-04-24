@@ -1,22 +1,43 @@
 package br.edu.infnet.estudo.model.domain;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TTrilha")
 public class Trilha {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer id;
 	public String nome;
 	public String categoria;
 	public String area;
-	public Aluno aluno;
 	public LocalDateTime dataLancamento;
+	@OneToOne(cascade = CascadeType.DETACH)
+	@JoinColumn(name = "idAluno")
+	public Aluno aluno;
+	@ManyToMany(cascade = CascadeType.DETACH)
 	public List<Conteudo> conteudos;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 	public Trilha() {
-		this.nome = "Trilha em definição";
-		this.dataLancamento = LocalDateTime.now();
+		
 	}
 	
 	@Override
@@ -75,6 +96,10 @@ public class Trilha {
 	public LocalDateTime getDataLancamento() {
 		return dataLancamento;
 	}
+	
+	public void setDataLancamento(String dataLancamento) {
+		this.dataLancamento = LocalDate.parse(dataLancamento, DateTimeFormatter.ofPattern("uuuu-MM-dd")).atStartOfDay();
+	}
 
 	public Integer getId() {
 		return id;
@@ -82,6 +107,14 @@ public class Trilha {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.estudo.model.domain.Artigo;
 import br.edu.infnet.estudo.model.domain.Conteudo;
 import br.edu.infnet.estudo.model.domain.Usuario;
 import br.edu.infnet.estudo.model.repository.ConteudoRepository;
@@ -22,6 +23,10 @@ public class ConteudoService {
 	
 	public void excluir(Integer id) {
 		conteudoRepository.deleteById(id);
+	}
+	
+	public Conteudo obterPorId(Integer id) {
+		return conteudoRepository.findById(id).get();
 	}
 			
 }

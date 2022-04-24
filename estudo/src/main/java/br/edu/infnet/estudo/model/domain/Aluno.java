@@ -77,7 +77,7 @@ public class Aluno {
 	}	
 	
 	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = LocalDate.parse(dataNascimento, DateTimeFormatter.ofPattern("uuuu-MM-dd")).atStartOfDay();;
+		this.dataNascimento = LocalDate.parse(dataNascimento, DateTimeFormatter.ofPattern("uuuu-MM-dd")).atStartOfDay();
 	}
 	
 	public String getProfissao() {

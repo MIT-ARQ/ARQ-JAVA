@@ -2,6 +2,7 @@ package br.edu.infnet.estudo.model.domain;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -27,7 +29,9 @@ public abstract class Conteudo {
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;
-
+	@ManyToMany(mappedBy = "conteudos")
+	private List<Trilha> trilhas;
+	
 	public Conteudo() {}
 	
 	public Conteudo(String nome, String link, LocalDateTime dataPublicacao) {
@@ -89,6 +93,14 @@ public abstract class Conteudo {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	
+	public List<Trilha> getTrilhas() {
+		return trilhas;
+	}
+
+	public void setTrilhas(List<Trilha> trilhas) {
+		this.trilhas = trilhas;
 	}
 
 	

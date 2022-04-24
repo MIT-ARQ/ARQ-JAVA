@@ -30,6 +30,9 @@ public class Usuario {
 	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
 	@JoinColumn(name = "idUsuario")
 	private List<Conteudo> conteudos;
+	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@JoinColumn(name = "idUsuario")
+	private List<Trilha> trilhas;
 	
 	
 	public Integer getId() {
@@ -74,4 +77,11 @@ public class Usuario {
 	public void setConteudos(List<Conteudo> conteudos) {
 		this.conteudos = conteudos;
 	}
+	public List<Trilha> getTrilhas() {
+		return trilhas;
+	}
+	public void setTrilhas(List<Trilha> trilhas) {
+		this.trilhas = trilhas;
+	}
+	
 }

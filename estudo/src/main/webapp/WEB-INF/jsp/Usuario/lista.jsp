@@ -31,6 +31,7 @@
 	      <th scope="col">Email</th>
 	      <th scope="col">Alunos</th>
 	      <th scope="col">Conteudos</th>
+	      <th scope="col">Trilhas</th>
 	      <th scope="col">Ações</th>
 	    </tr>
 	  </thead>
@@ -42,6 +43,7 @@
 	      <td>${l.email}</td>
 	      <td>${l.alunos.size()}</td>
 	      <td>${l.conteudos.size()}</td>
+	      <td>${l.trilhas.size()}</td>
 		  <td>
 		      <c:if test="${usuarioLogado.admin}">
 		      	<a href="/usuario/${l.id}/excluir">excluir</a>

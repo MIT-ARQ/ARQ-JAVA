@@ -32,6 +32,24 @@
     <label>Área</label>
     <input type="text" class="form-control"  placeholder="Insira a área" name="area">
   </div>
+  <div class="mb-3 mt-3">
+  <br>
+    <label>Aluno:</label>
+    <select name="aluno.id" class="form-control">
+	    <c:forEach var="a" items="${alunos}">
+	    	<option value="${a.id}">${a.nome}</option>
+	    </c:forEach>
+    </select>
+  </div>
+  <div class="mb-3 mt-3">
+  <br>
+    <label>Conteudos:</label>
+    <div class="checkbox">
+	    <c:forEach var="c" items="${conteudos}">
+	    	<label><input type="checkbox" value="${c.id}" name="idsConteudos" checked> ${c.nome} </label>
+	    </c:forEach>
+    </div>
+  </div>
   <br>
   <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
 </form>
